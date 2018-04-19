@@ -20,7 +20,7 @@ dependencies {
     compile 'org.springframework:spring-beans:4.3.6.RELEASE'
     compile 'org.restlet.jee:org.restlet.ext.spring:2.3.+'
 
-    compile 'ca.nrc.cadc:gmui-lib:[1.0.3, )'
+    compile 'org.opencadc:gmui:1.1.0'
 
     runtime 'jstl:jstl:1.+'
 
