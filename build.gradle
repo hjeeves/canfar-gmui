@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.springframework:spring-beans:4.3.6.RELEASE'
+    compile 'org.springframework:spring-beans:4.3.16.RELEASE'
     compile 'org.restlet.jee:org.restlet.ext.spring:2.3.+'
 
     compile 'org.opencadc:gmui:1.1.0'
@@ -28,7 +28,7 @@ dependencies {
     testCompile 'org.skyscreamer:jsonassert:1.+'
     testCompile 'org.easymock:easymock:3.+'
     testCompile 'org.opencadc:cadc-web-test:[1.0.2, )'
-    testCompile 'org.seleniumhq.selenium:selenium-java:2.53.+'
+    testCompile 'org.seleniumhq.selenium:selenium-java:3.+'
 }
 
 sourceCompatibility = '1.7'
@@ -42,7 +42,7 @@ ext {
     docker_image_name = 'mach378.cadc.dao.nrc.ca:5000/canfar-gmui'
 
     // Change this value to test other locations, such as Production or RC.
-    intTest_web_app_url = 'http://rcapps.canfar.net'
+    intTest_default_web_app_url = 'http://rcapps.canfar.net'
     intTest_default_web_app_endpoint = '/gmui'
 }
 
@@ -54,38 +54,7 @@ war {
         }
     }
 
-    archiveName project.name + '##' + project.version + '.war'
-}
-
-clean {
-    doFirst {
-        exec {
-            executable 'rm'
-            args = ['-rf', './docker']
-        }
-    }
-}
-
-task initDockerize(type: Copy, dependsOn: build) {
-    from 'Dockerfile'
-    into 'docker/'
-}
-
-task copyWAR(type: Copy, dependsOn: war) {
-    from 'build/libs/'
-    into 'docker/'
-    include '*.war'
-}
-
-task dockerize(type: Exec, dependsOn: [initDockerize, copyWAR]) {
-    commandLine 'docker', 'build', '-t', docker_image_name, '-f', './docker/Dockerfile', './docker/'
-}
-
-ext {
-    // Change this value to test other locations, such as Production or RC.
-    intTest_default_web_app_url = 'http://localhost:8080'
-    intTest_user_name = 'CADCtest'
-    intTest_user_password = 'sywymUL4'
+    archiveName = 'gmui##' + project.version + '.war'
 }
 
 sourceSets {

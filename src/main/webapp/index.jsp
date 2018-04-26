@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" session="false"
-         pageEncoding="UTF-8" %>
-  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" session="false" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
       <c:set var="baseURL" value='<%= System.getenv("CANFAR_WEB_HOST") %>' />
 
