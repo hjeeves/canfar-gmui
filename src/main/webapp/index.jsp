@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" session="false"
-         pageEncoding="UTF-8" %>
-  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" session="false" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
       <c:set var="baseURL" value='<%= System.getenv("CANFAR_WEB_HOST") %>' />
 
@@ -397,6 +396,13 @@
         <script type="application/javascript" src="<c:out value=" ${baseURL}/cadcVOTV/javascript/cadc.votv.comparer.js " />"></script>
         <script type="application/javascript" src="${contextPath}/js/cadc.gms.js?version=@version@"></script>
         <script type="application/javascript" src="${contextPath}/js/cadc.gms.list.js?version=@version@"></script>
+
+        <script type="application/javascript">
+          $(document).ready(function() {
+            var app = new App({grid_offset: 200})
+            app.loadGroups()             
+          })
+        </script>
 
       </body>
 
