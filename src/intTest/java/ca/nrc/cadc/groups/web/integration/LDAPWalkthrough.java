@@ -31,60 +31,65 @@
  ****  C A N A D I A N   A S T R O N O M Y   D A T A   C E N T R E  *****
  ************************************************************************
  */
+
 package ca.nrc.cadc.groups.web.integration;
 
+import ca.nrc.cadc.web.selenium.AbstractWebApplicationIntegrationTest;
 import ca.nrc.cadc.web.selenium.AnonymousPage;
 import ca.nrc.cadc.web.selenium.LoginPage;
+import org.apache.commons.text.RandomStringGenerator;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.*;
 
 
-public class LDAPWalkthrough extends AbstractGroupsWebIntegrationTest
-{
+public class LDAPWalkthrough extends AbstractWebApplicationIntegrationTest {
+    public LDAPWalkthrough() throws Exception {
+        super();
+        setFailOnTimeout(true);
+    }
+
     @Test
-    public void walkThrough() throws Exception
-    {
+    public void walkThrough() throws Exception {
         final AnonymousPage anonymousPage = goTo("/canfar/", "",
                                                  AnonymousPage.class);
         final LoginPage loginPage = anonymousPage.goToLoginPage();
         final AuthenticatedCANFARDashboardPage dashboardPage =
-                loginPage.doLogin(getUsername(), getPassword(),
-                                  AuthenticatedCANFARDashboardPage.class);
+            loginPage.doLogin(getUsername(), getPassword(),
+                              AuthenticatedCANFARDashboardPage.class);
 
         GMUIPage groupManagementPage = dashboardPage.clickGMUI();
-        final String newGroupName = "TESTGROUP_" + generateAlphaNumeric(8);
+        final String newGroupName = generateGroupName();
 
         final CreateGroupPage createGroupPage =
-                groupManagementPage.createGroup();
+            groupManagementPage.createGroup();
 
         createGroupPage.enterGroupName(newGroupName);
         groupManagementPage = createGroupPage.submit();
 
-        while (groupManagementPage.getGroupLink(newGroupName) == null)
-        {
+        while (groupManagementPage.getGroupLink(newGroupName) == null) {
             groupManagementPage.scrollDown();
         }
 
         EditGroupMembersPage editGroupMembersPage =
-                groupManagementPage.editGroupMembers(newGroupName);
+            groupManagementPage.editGroupMembers(newGroupName);
 
         assertTrue("Wrong header.",
                    editGroupMembersPage.getGridHeaderLabelText()
-                           .contains("Showing 1 rows"));
+                                       .contains("Showing 1 rows"));
 
         editGroupMembersPage.enterMemberName("cadc");
         editGroupMembersPage.waitForTextPresent(
-                EditGroupMembersPage.AUTOCOMPLETE_SELECTOR,
-                "more not shown here.");
+            EditGroupMembersPage.AUTOCOMPLETE_SELECTOR,
+            "more not shown here.");
 
         editGroupMembersPage.enterMemberName("cadcauth");
         editGroupMembersPage.selectFirstAutocompleteSuggestion();
         editGroupMembersPage.addMember();
 
         final WebElement memberEntry =
-                editGroupMembersPage.findEntry("CADC Authtest1");
+            editGroupMembersPage.findEntry("CADC Authtest1");
 
         assertNotNull("No new entry for CADC Authtest1", memberEntry);
 
@@ -92,23 +97,27 @@ public class LDAPWalkthrough extends AbstractGroupsWebIntegrationTest
 
         // Add administrator
         final EditGroupAdministratorsPage editGroupAdministratorsPage =
-                groupManagementPage.editGroupAdministrators(newGroupName);
+            groupManagementPage.editGroupAdministrators(newGroupName);
 
         editGroupAdministratorsPage.enterAdminName("cadc");
 
         editGroupAdministratorsPage.waitForTextPresent(
-                EditGroupAdministratorsPage.AUTOCOMPLETE_SELECTOR,
-                "more not shown here.");
+            EditGroupAdministratorsPage.AUTOCOMPLETE_SELECTOR,
+            "more not shown here.");
 
         editGroupAdministratorsPage.enterAdminName("cadcauth");
         editGroupAdministratorsPage.selectFirstAutocompleteSuggestion();
         editGroupAdministratorsPage.addAdmin();
 
         final WebElement adminEntry =
-                editGroupAdministratorsPage.findEntry("CADC Authtest2");
+            editGroupAdministratorsPage.findEntry("CADC Authtest2");
 
         assertNotNull("No new entry for CADC Authtest1", adminEntry);
 
         editGroupAdministratorsPage.done();
+    }
+
+    private String generateGroupName() {
+        return new RandomStringGenerator.Builder().withinRange('A', 'Z').build().generate(16);
     }
 }
