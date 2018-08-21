@@ -179,6 +179,7 @@
                           </div>
                           <div class="modal-body">
                             <form class="form-horizontal" method="post" action="${contextPath}/groups" name="groupForm">
+                              <span class="form-message text-danger bg-danger"></span>
                               <!-- Group Name -->
                               <div class="form-group">
                                 <label for="add_group_name" class="col-sm-2 control-label" id="add_group_name_label"></label>
@@ -227,7 +228,7 @@
                           <div class="modal-body">
                             <form class="form-horizontal" method="post" action="${contextPath}/groups" name="groupForm">
 
-                              <div id="submit_error" class="form-message text-success text-center"></div>
+                              <span class="form-message text-danger bg-danger"></span>
 
                               <div class="loader_container">
                                 <div class="text-center">
