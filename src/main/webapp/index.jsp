@@ -395,13 +395,17 @@
         <script type="application/javascript" src="<c:out value=" ${baseURL}/cadcVOTV/javascript/cadc.plugin.filter_default.js " />"></script>
         <script type="application/javascript" src="<c:out value=" ${baseURL}/cadcVOTV/javascript/cadc.votv.js " />"></script>
         <script type="application/javascript" src="<c:out value=" ${baseURL}/cadcVOTV/javascript/cadc.votv.comparer.js " />"></script>
-        <script type="application/javascript" src="${contextPath}/js/cadc.gms.js?version=@version@"></script>
-        <script type="application/javascript" src="${contextPath}/js/cadc.gms.list.js?version=@version@"></script>
+
+        <script type="text/javascript" src="//apps.canfar.net/cadcJS/javascript/cadc.registry-client.js"></script>
+        <script type="text/javascript" src="//www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/cadc/bootstrap/js/cadc.user.js"></script>
+        <script type="text/javascript" src="//www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/cadc/bootstrap/js/login.js"></script>
+        <script type="text/javascript" src="${contextPath}/js/cadc.gms.js?version=@version@"></script>
+        <script type="text/javascript" src="${contextPath}/js/cadc.gms.list.js?version=@version@"></script>
 
         <script type="application/javascript">
           $(document).ready(function() {
             var app = new App({grid_offset: 200})
-            app.loadGroups()             
+            app.loadGroups()
           })
         </script>
 
