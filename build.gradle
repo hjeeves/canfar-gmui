@@ -16,6 +16,12 @@ repositories {
     }
 }
 
+configurations.all {
+    resolutionStrategy {
+        force 'org.apache.commons:commons-configuration2:2.3'
+    }
+}
+
 dependencies {
     compile 'org.springframework:spring-beans:4.3.16.RELEASE'
     compile 'org.restlet.jee:org.restlet.ext.spring:2.3.+'
