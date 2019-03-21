@@ -25,13 +25,13 @@
 
         <c:import url="${baseURL}/canfar/includes/_page_top_styles.shtml" />
 
-        <link rel="stylesheet" type="text/css" href="<c:out value=" ${baseURL}/cadcVOTV/css/slick.grid.css " />" media="screen" />
-        <link rel="stylesheet" type="text/css" href="<c:out value=" ${baseURL}/cadcVOTV/css/slick.pager.css " />" media="screen" />
-        <link rel="stylesheet" type="text/css" href="<c:out value=" ${baseURL}/cadcVOTV/css/jquery-ui-1.11.4.min.css " />" media="screen"
-        />
-        <link rel="stylesheet" type="text/css" href="<c:out value=" ${baseURL}/cadcVOTV/css/slick.columnpicker.css " />" media="screen"
-        />
-        <link rel="stylesheet" type="text/css" href="<c:out value=" ${baseURL}/cadcVOTV/css/cadc.votv.css " />" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/cadcVOTV/css/slick.grid.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/cadcVOTV/css/slick.pager.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/cadcVOTV/css/jquery-ui-1.11.4.min.css" media="screen" />
+
+        <link rel="stylesheet" type="text/css" href="/cadcVOTV/css/slick.columnpicker.css" media="screen" />
+
+        <link rel="stylesheet" type="text/css" href="/cadcVOTV/css/cadc.votv.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="${contextPath}/css/cadc.gms.css" media="screen" />
 
         <style type="text/css">
@@ -121,9 +121,6 @@
         <script type="text/javascript" src="${contextPath}/js/jquery.i18n.emitter.js"></script>
         <script type="text/javascript" src="${contextPath}/js/jquery.i18n.language.js"></script>
 
-        <!--[if lt IE 9]>
-  <script src="/html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
         <title>CANFAR</title>
       </head>
 
@@ -379,22 +376,22 @@
           </div>
         </div>
 
-        <script type="application/javascript" src="<c:out value=" ${baseURL}/cadcVOTV/javascript/jquery-ui-1.11.4.min.js " />"></script>
-        <script type="application/javascript" src="<c:out value=" ${baseURL}/cadcVOTV/javascript/jquery.event.drag-2.2.min.js
-          " />"></script>
+        <script type="application/javascript" src="/cadcVOTV/javascript/jquery-ui-1.11.4.min.js"></script>
+        <script type="application/javascript" src="/cadcVOTV/javascript/jquery.event.drag-2.2.min.js
+         "></script>
 
-        <script type="application/javascript" src="<c:out value=" ${baseURL}/cadcVOTV/javascript/slick.core.js " />"></script>
-        <script type="application/javascript" src="<c:out value=" ${baseURL}/cadcVOTV/javascript/slick.grid.js " />"></script>
-        <script type="application/javascript" src="<c:out value=" ${baseURL}/cadcVOTV/javascript/slick.dataview.js " />"></script>
-        <script type="application/javascript" src="<c:out value=" ${baseURL}/cadcVOTV/javascript/slick.pager.js " />"></script>
-        <script type="application/javascript" src="<c:out value=" ${baseURL}/cadcVOTV/javascript/slick.columnpicker.js " />"></script>
-        <script type="application/javascript" src="<c:out value=" ${baseURL}/cadcVOTV/javascript/jquery.csv-0.71.min.js " />"></script>
-        <script type="application/javascript" src="<c:out value=" ${baseURL}/cadcVOTV/javascript/cadc.rowselectionmodel.js " />"></script>
-        <script type="application/javascript" src="<c:out value=" ${baseURL}/cadcVOTV/javascript/cadc.votable.js " />"></script>
-        <script type="application/javascript" src="<c:out value=" ${baseURL}/cadcVOTV/javascript/cadc.votable-reader.js " />"></script>
-        <script type="application/javascript" src="<c:out value=" ${baseURL}/cadcVOTV/javascript/cadc.plugin.filter_default.js " />"></script>
-        <script type="application/javascript" src="<c:out value=" ${baseURL}/cadcVOTV/javascript/cadc.votv.js " />"></script>
-        <script type="application/javascript" src="<c:out value=" ${baseURL}/cadcVOTV/javascript/cadc.votv.comparer.js " />"></script>
+        <script type="application/javascript" src="/cadcVOTV/javascript/slick.core.js"></script>
+        <script type="application/javascript" src="/cadcVOTV/javascript/slick.grid.js"></script>
+        <script type="application/javascript" src="/cadcVOTV/javascript/slick.dataview.js"></script>
+        <script type="application/javascript" src="/cadcVOTV/javascript/slick.pager.js"></script>
+        <script type="application/javascript" src="/cadcVOTV/javascript/slick.columnpicker.js"></script>
+        <script type="application/javascript" src="/cadcVOTV/javascript/jquery.csv-0.71.min.js"></script>
+        <script type="application/javascript" src="/cadcVOTV/javascript/cadc.rowselectionmodel.js"></script>
+        <script type="application/javascript" src="/cadcVOTV/javascript/cadc.votable.js"></script>
+        <script type="application/javascript" src="/cadcVOTV/javascript/cadc.votable-reader.js"></script>
+        <script type="application/javascript" src="/cadcVOTV/javascript/cadc.plugin.filter_default.js"></script>
+        <script type="application/javascript" src="/cadcVOTV/javascript/cadc.votv.js"></script>
+        <script type="application/javascript" src="/cadcVOTV/javascript/cadc.votv.comparer.js"></script>
 
         <script type="text/javascript" src="${contextPath}/js/cadc.gms.js?version=@version@"></script>
         <script type="text/javascript" src="${contextPath}/js/cadc.gms.list.js?version=@version@"></script>
