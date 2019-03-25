@@ -40,7 +40,7 @@ dependencies {
 
 sourceCompatibility = '1.7'
 group = 'ca.nrc.cadc'
-version = '1006'
+version = '1007'
 
 ext {
     intTest_user_name = 'CADCtest'
@@ -61,7 +61,7 @@ war {
         }
     }
 
-    archiveName = 'gmui##' + project.version + '.war'
+    archiveName = 'canfar-gmui##' + project.version + '.war'
 }
 
 sourceSets {
